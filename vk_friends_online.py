@@ -60,5 +60,7 @@ if __name__ == '__main__':
     try:
         friends_online = get_online_vk_friends(vk_login, vk_password, scope='friends, users')
         output_friends_to_console(friends_online)
-    except Exception:
+    except vk.exceptions.VkAuthError:
         print('Ошибка авторизации')
+    else:
+        print('Неизвестная ошибка')
